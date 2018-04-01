@@ -1,6 +1,6 @@
 *navim.txt*	A full-blown IDE based on Neovim (or Vim) with better navigation.
 
-Version: 1.0.8
+Version: 1.0.0
 Author:  taohe <taohex@gmail.com>
 License: MIT license
 
@@ -64,7 +64,7 @@ BASIC INSTALLATION				*navim-basic-installation*
 Basic installation is simple:
 
 >
-	git clone https://github.com/taohex/navim ~/.config/nvim
+	git clone https://github.com/taohexxx/navim ~/.config/nvim
 	cd ~/.config/nvim/
 	git submodule init && git submodule update
 <
@@ -190,13 +190,13 @@ g:navim_settings.colorscheme
 
 						*g:navim_settings.powerline_fonts*
 g:navim_settings.powerline_fonts
-		Requires "https://github.com/taohex/font"
+		Requires "https://github.com/taohexxx/font"
 
 		Values: 1, 0
 
 						*g:navim_settings.nerd_fonts*
 g:navim_settings.nerd_fonts
-		Requires "https://github.com/taohex/font"
+		Requires "https://github.com/taohexxx/font"
 
 		Values: 1, 0
 
@@ -321,7 +321,7 @@ PLUGINS						*navim-plugins*
 denite.nvim			https://github.com/Shougo/denite.nvim
 unite.vim			https://github.com/Shougo/unite.vim
 lightline.vim			https://github.com/itchyny/lightline.vim
-lightline-buffer		https://github.com/taohex/lightline-buffer
+lightline-buffer		https://github.com/taohexxx/lightline-buffer
 deoplete			https://github.com/Shougo/deoplete.nvim
 vimfiler.vim			https://github.com/Shougo/vimfiler.vim
 unimpaired			https://github.com/tpope/vim-unimpaired
@@ -335,7 +335,7 @@ FONTS						*navim-fonts*
 If 'g:navim_settings.powerline_fonts' or 'g:navim_settings.nerd_fonts' is 1,
 you need to configure your terminal font from one of the following repos:
 
-taohex's font			https://github.com/taohex/font
+taohe's font			https://github.com/taohexxx/font
 ryanoasis's font		https://github.com/ryanoasis/nerd-fonts
 
 

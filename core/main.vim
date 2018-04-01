@@ -438,7 +438,7 @@
 " layers configuration {{{
 
   if count(g:navim_settings.layers, 'core') "{{{
-    call dein#add('taohex/vim-leader-guide')
+    call dein#add('taohexxx/vim-leader-guide')
     if g:navim_settings.statusline_plugin ==# 'airline' "{{{
       "if g:navim_settings.encoding ==# 'utf-8' &&
       "    \ has('multi_byte') && has('unix') && &encoding ==# 'utf-8' &&
@@ -628,9 +628,9 @@
         let g:vimshell_force_overwrite_statusline = 0
 
       "}}}
-      call dein#add('taohex/lightline-buffer', {'depends': 'itchyny/lightline.vim'})
+      call dein#add('taohexxx/lightline-buffer', {'depends': 'itchyny/lightline.vim'})
       if g:navim_settings.colorscheme ==# 'solarized' "{{{
-        call dein#add('taohex/lightline-solarized', {'depends': 'itchyny/lightline.vim'})
+        call dein#add('taohexxx/lightline-solarized', {'depends': 'itchyny/lightline.vim'})
       endif "}}}
     endif "}}}
     call dein#add('tpope/vim-surround')
@@ -658,7 +658,7 @@
 
   call dein#add('nanotech/jellybeans.vim')
   if g:navim_settings.colorscheme ==# 'solarized' "{{{
-    call dein#add('taohex/vim-colors-solarized')
+    call dein#add('taohexxx/vim-colors-solarized')
     let g:solarized_termcolors = 256
     let g:solarized_termtrans = 1
   elseif g:navim_settings.colorscheme ==# 'molokai'

@@ -1,8 +1,8 @@
-# Navim &middot; [![Build Status](https://travis-ci.org/taohex/navim.svg?branch=master)](https://travis-ci.org/taohex/navim) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+# Navim &middot; [![Build Status](https://travis-ci.org/taohexxx/navim.svg?branch=master)](https://travis-ci.org/taohexxx/navim) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 A full-blown IDE based on Neovim (or Vim) with better navigation.
 
-![Navim](http://taohex.github.io/navim/images/navim.gif)
+![Navim](http://taohexxx.github.io/navim/images/navim.gif)
 
 **Table of Contents**
 
@@ -22,7 +22,7 @@ You don't need to remember any key mapping, as navigation bar will show up immed
 
 Default `<Leader>` is <kbd>Space</kbd>, `<LocalLeader>` is <kbd>,</kbd>. For example, <kbd>Space</kbd> <kbd>s</kbd> <kbd>s</kbd> search the word under cursor. As shown below, key mapping is carefully-chosen.
 
-![Navim Key Mapping](http://taohex.github.io/navim/images/navim_key_mapping.png)
+![Navim Key Mapping](http://taohexxx.github.io/navim/images/navim_key_mapping.png)
 
 Most of key mapping is [denite](https://github.com/Shougo/denite.nvim) centric. More key mapping is listed here:
 
@@ -39,7 +39,7 @@ Key Mapping                                                   | Description
 Basic installation is simple:
 
 ```sh
-git clone --recursive https://github.com/taohex/navim ~/.config/nvim
+git clone --recursive https://github.com/taohexxx/navim ~/.config/nvim
 ```
 
 Make links if you are using Vim:
@@ -80,8 +80,8 @@ Key                      | Value                                               |
 `syntaxcheck_autoselect` | `1`, `0`                                            | if equals `1`, auto select the best plugin (recommended)
 `syntaxcheck_plugin`     | `'ale'`, `'syntastic'`                              | only set this when `syntaxcheck_autoselect` is `0`
 `colorscheme`            | `'solarized'`, `'molokai'`, `'jellybeans'`          | use other colorschemes in `additional_plugins` or `layers` is supported
-`powerline_fonts`        | `1`, `0`                                            | requires [fonts](https://github.com/taohex/fonts)
-`nerd_fonts`             | `1`, `0`                                            | requires [fonts](https://github.com/taohex/fonts)
+`powerline_fonts`        | `1`, `0`                                            | requires [fonts](https://github.com/taohexxx/fonts)
+`nerd_fonts`             | `1`, `0`                                            | requires [fonts](https://github.com/taohexxx/fonts)
 
 ## Advanced Installation
 
@@ -176,12 +176,20 @@ Check for `~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so` a
 
 Download <https://raw.githubusercontent.com/Valloric/ycmd/master/cpp/ycm/.ycm_extra_conf.py> to your project directory
 
+### Windows
+
+```sh
+git clone --recursive https://github.com/taohexxx/navim %userprofile%\AppData\Local\nvim
+```
+
+run `nvim.exe` before run `nvim-qt.exe`
+
 ## Plugins
 
 *	[denite.nvim](https://github.com/Shougo/denite.nvim)
 *	[unite.vim](https://github.com/Shougo/unite.vim)
 *	[lightline.vim](https://github.com/itchyny/lightline.vim)
-*	[lightline-buffer](https://github.com/taohex/lightline-buffer)
+*	[lightline-buffer](https://github.com/taohexxx/lightline-buffer)
 *	[deoplete](https://github.com/Shougo/deoplete.nvim)
 *	[vimfiler.vim](https://github.com/Shougo/vimfiler.vim)
 *	[unimpaired](https://github.com/tpope/vim-unimpaired)
@@ -197,11 +205,11 @@ Create an `.editorconfig` in any parent directory for consistent coding styles.
 
 `~/.config/nvim/tags/*.tags` will be auto added.
 
-[Tags (`:h navim-tags`)](https://github.com/taohex/navim/blob/master/doc/navim.txt#L338)
+[Tags (`:h navim-tags`)](https://github.com/taohexxx/navim/blob/master/doc/navim.txt#L338)
 
 ## Help
 
-[Help (`:h navim`)](https://github.com/taohex/navim/blob/master/doc/navim.txt)
+[Help (`:h navim`)](https://github.com/taohexxx/navim/blob/master/doc/navim.txt)
 
 ## Credits
 
@@ -209,6 +217,5 @@ Built with :heart:. I wanted to give special thanks to all of the following proj
 
 *	[spacemacs](https://github.com/syl20bnr/spacemacs)
 *	[shougo](https://github.com/Shougo)
-*	[bling](https://github.com/bling/dotvim)
 *	...
 

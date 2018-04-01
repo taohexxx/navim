@@ -6,7 +6,7 @@
   let g:navim_platform_neovim = has('nvim')
   let g:navim_has_python3 = (has('pythonx') && &pyxversion == 3) || has('python3')
   let g:navim_has_python2 = (has('pythonx') && &pyxversion == 2) || has('python2')
-  let g:navim_path_separator = g:navim_platform_windows ? '\' : '/'
+  let g:navim_path_separator = '/'
 
   let maplocalleader = ','
   let mapleader = ' '

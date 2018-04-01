@@ -57,13 +57,15 @@ let g:lightline_buffer_git_icon = ' '
 let g:lightline_buffer_ellipsis_icon = '..'  " '…'
 let g:lightline_buffer_expand_left_icon = '◀ '  " '… '
 let g:lightline_buffer_expand_right_icon = ' ▶'  " ' …'
-let g:lightline_buffer_progress_icon = '░'
-let g:lightline_buffer_wait_animate = '⠇⠏⠋⠙⠹⠸⠼⠴⠦⠧'
+let g:lightline_buffer_active_buffer_left_icon = ''  " ''
+let g:lightline_buffer_active_buffer_right_icon = ''  " ''
 let g:lightline_buffer_separator_left_icon = ' '
 let g:lightline_buffer_separator_right_icon = ''
 let g:lightline_buffer_enable_devicons = 1
 let g:lightline_buffer_debug_info = 0
 let g:lightline_buffer_reservelen = 20
+let g:lightline_buffer_progress_icon = '░'
+let g:lightline_buffer_wait_animate = '⠇⠏⠋⠙⠹⠸⠼⠴⠦⠧'
 
 " :help tabline
 " tabline use "%1T" for the first label, "%2T" for the second one, etc. use "%T" for ending. use "%X" items for closing labels
