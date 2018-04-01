@@ -1,0 +1,80 @@
+" after restart Neovim (or Vim),
+" run `call dein#clear_state() || call dein#update()` to apply changes
+
+" settings before all
+function! BeforeAll()
+
+  let g:navim_settings = {}
+
+  " layers
+  let g:navim_settings.layers = [
+      \ 'c',
+      \ 'completion',
+      \ 'core',
+      \ 'editing',
+      \ 'go',
+      \ 'indents',
+      \ 'javascript',
+      \ 'language',
+      \ 'misc',
+      \ 'navigation',
+      \ 'python',
+      \ 'scm',
+      \ 'unite']
+  "'ruby', 'scala', 'textobj', 'web'
+
+  " additional plugins
+  let g:navim_settings.additional_plugins = []
+  "'joshdick/onedark.vim', 'yonchu/accelerated-smooth-scroll', 'edkolev/tmuxline.vim'
+
+  " disabled plugins
+  let g:navim_settings.disabled_plugins = [
+      \ 'google.vim',
+      \ 'junkfile.vim',
+      \ 'unite-airline_themes',
+      \ 'unite-colorscheme',
+      \ 'unite-help',
+      \ 'unite-tag']
+
+  " core
+  let g:navim_settings.encoding = 'utf-8'
+  "let g:navim_settings.encoding = 'gbk'
+  "let g:navim_settings.encoding = 'latin1'
+  let g:navim_settings.default_indent = 2
+  "let g:navim_settings.bin_dir = '/usr/local/bin'
+  let g:navim_settings.cscopeprg = 'gtags-cscope'
+  "let g:navim_settings.cscopeprg = 'cscope'
+
+  " plugins
+  let g:navim_settings.completion_autoselect = 1
+  let g:navim_settings.syntaxcheck_autoselect = 1
+  let g:navim_settings.explorer_plugin = 'nerdtree'
+  "let g:navim_settings.explorer_plugin = 'vimfiler'
+  let g:navim_settings.statusline_plugin = 'airline'
+  "let g:navim_settings.statusline_plugin = 'lightline'
+
+  " user interface
+  "let g:navim_settings.colorscheme = 'solarized'
+  "let g:navim_settings.colorscheme = 'molokai'
+  let g:navim_settings.colorscheme = 'jellybeans'
+  "let g:navim_settings.colorscheme = 'onedark'
+  let g:navim_settings.force256 = 0
+  let g:navim_settings.termtrans = 0
+  let g:navim_settings.max_column = 80
+  let g:navim_settings.powerline_fonts = 0
+  let g:navim_settings.nerd_fonts = 0
+
+endfunction
+
+" settings after all
+function! AfterAll()
+
+  " use spaces instead of tabs
+  set expandtab
+  "set noexpandtab
+
+endfunction
+
+
+" vim: fdm=marker ts=2 sts=2 sw=2 fdl=0
+

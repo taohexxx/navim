@@ -1,0 +1,401 @@
+*navim.txt*	A full-blown IDE based on Neovim (or Vim) with better navigation.
+
+Version: 1.0.8
+Author:  taohe <taohex@gmail.com>
+License: MIT license
+
+==============================================================================
+CONTENTS					*navim-contents*
+
+Introduction			|navim-introduction|
+Key Mapping			|navim-key-mapping|
+Basic Installation		|navim-basic-installation|
+Advanced Settings		|navim-advanced-settings|
+  Commands			|navim-commands|
+  Functions			|navim-functions|
+  Variables			|navim-variables|
+  Options			|navim-options|
+Advanced Installation		|navim-advanced-installation|
+  macOS				|navim-macos|
+Plugins				|navim-plugins|
+Fonts				|navim-fonts|
+Tags				|navim-tags|
+Coding Style			|navim-coding-style|
+FAQ				|navim-faq|
+Compatibility			|navim-compatibility|
+
+
+==============================================================================
+INTRODUCTION					*navim-introduction*
+
+The ultimate Neovim distribution
+
+
+==============================================================================
+KEY MAPPING					*navim-key-mapping*
+
+You don't need to remember any key mapping, as navigation bar will show up
+immediately after the leader key (<Space> by default) is pressed.
+
+Default <Leader> is <Space>, default <LocalLeader> is <Comma>.
+For example, <Space> s s search the word under cursor.
+Key mapping is carefully-chosen.
+
+						*navim-key-mapping-left-right*
+<Left> or <Right>
+		previous buffer, next buffer
+
+						*navim-key-mapping-move-window*
+<C-h>, <C-j>, <C-k> or <C-l>
+		move to window in the direction
+
+						*navim-key-mapping-maximize-window*
+<C-w> o
+		maximize or restore current window in split structure
+
+						*navim-key-mapping-close-window*
+Q
+		close windows and delete the buffer (if it is the last buffer window)
+
+
+==============================================================================
+BASIC INSTALLATION				*navim-basic-installation*
+
+Basic installation is simple:
+
+>
+	git clone https://github.com/taohex/navim ~/.config/nvim
+	cd ~/.config/nvim/
+	git submodule init && git submodule update
+<
+
+Make links if you are using Vim:
+
+>
+	mv ~/.vim ~/.vim.backup
+	mv ~/.vimrc ~/.vimrc.backup
+	ln -s ~/.config/nvim ~/.vim
+	ln -s ~/.config/nvim/init.vim ~/.vimrc
+<
+
+Startup vim and dein will detect and ask you install any missing plugins.
+
+
+==============================================================================
+ADVANCED SETTINGS				*navim-advanced-settings*
+
+Plugins are nicely organised in layers.
+There are many ready-to-use layers (javascript, navigation, scm, web, etc.)
+and you can add your own ones.
+
+Private layers can be added to "private_layers/".
+And Private plugins can be added to "private_bundle/".
+The content of these two directory is ignored by Git.
+
+It is completely customisable using a "~/.navimrc" file.
+Just copy ".navimrc.sample" to "~/.navimrc" and modify anything.
+
+After restart Neovim (or Vim),
+run "call dein#clear_state() || call dein#update()" to apply changes.
+
+
+------------------------------------------------------------------------------
+COMMANDS					*navim-commands*
+
+						*navim-xtermcolortable*
+XtermColorTable
+		show color table
+
+						*navim-syntax*
+syntax
+		show syntax highlight
+
+
+------------------------------------------------------------------------------
+FUNCTIONS					*navim-functions*
+
+
+------------------------------------------------------------------------------
+VARIABLES					*navim-variables*
+
+In most instances, modify "g:navim_settings" in "~/.navimrc" should meet
+your needs.
+
+						*g:navim_settings.layers*
+g:navim_settings.layers
+		Files in "layers/" or "private_layers/".
+
+		Example: ['c', 'completion', 'editing']
+
+						*g:navim_settings.additional_plugins*
+g:navim_settings.additional_plugins
+		Github repo.
+
+		Example: ['joshdick/onedark.vim', 'edkolev/tmuxline.vim']
+
+						*g:navim_settings.encoding*
+g:navim_settings.encoding
+		Select from files in "encoding/".
+
+		Values: 'utf-8', 'gbk', 'latin1', ...
+
+						*g:navim_settings.bin_dir*
+g:navim_settings.bin_dir
+		Set bin directory for cscope, ctags, gdb, ...
+
+		Example: '/usr/local/bin'
+
+						*g:navim_settings.explorer_plugin*
+g:navim_settings.explorer_plugin
+		Explorer plugin.
+
+		Values: 'nerdtree', 'vimfiler'
+
+						*g:navim_settings.statusline_plugin*
+g:navim_settings.statusline_plugin
+		Statusline plugin.
+
+		Values: 'airline', 'lightline'
+
+						*g:navim_settings.completion_autoselect*
+g:navim_settings.completion_autoselect
+		If equals 1, auto select the best plugin (recommended).
+
+		Values: 1, 0
+
+						*g:navim_settings.completion_plugin*
+g:navim_settings.completion_plugin
+		Only set this when |g:navim_settings.completion_autoselect| is 0.
+
+		Values: 'deoplete', 'neocomplete', 'neocomplcache'
+
+						*g:navim_settings.syntaxcheck_autoselect*
+g:navim_settings.syntaxcheck_autoselect
+		If equals 1, auto select the best plugin (recommended).
+
+		Values: 1, 0
+
+						*g:navim_settings.syntaxcheck_plugin*
+g:navim_settings.syntaxcheck_plugin
+		Only set this when |g:navim_settings.syntaxcheck_autoselect| is 0.
+
+		Values: 'ale', 'syntastic'
+
+						*g:navim_settings.colorscheme*
+g:navim_settings.colorscheme
+		Use other colorschemes in |g:navim_settings.additional_plugins| or
+		|g:navim_settings.layers| is supported.
+
+		Values: 'solarized', 'molokai', 'jellybeans'
+
+						*g:navim_settings.powerline_fonts*
+g:navim_settings.powerline_fonts
+		Requires "https://github.com/taohex/font"
+
+		Values: 1, 0
+
+						*g:navim_settings.nerd_fonts*
+g:navim_settings.nerd_fonts
+		Requires "https://github.com/taohex/font"
+
+		Values: 1, 0
+
+
+------------------------------------------------------------------------------
+OPTIONS						*navim-options*
+		The {options} accepts the following keys:
+
+
+==============================================================================
+ADVANCED INSTALLATION				*navim-advanced-installation*
+
+
+------------------------------------------------------------------------------
+MACOS						*navim-macos*
+
+YouComplete only support Neovim or MacVim.
+
+						*navim-macos-install-neovim*
+Install Neovim (Recommended)
+
+>
+	pip install --upgrade pip
+	pip3 install --upgrade pip
+	pip install --user --upgrade neovim
+	pip3 install --user --upgrade neovim
+	brew tap neovim/neovim
+	brew update
+	brew reinstall --HEAD neovim
+<
+
+Make alias
+
+>
+	alias vi='nvim'
+	alias vim="nvim"
+	alias vimdiff="nvim -d"
+<
+
+If <C-h> does not work in neovim, add these line to "~/.zshrc"
+
+>
+	infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+	tic $TERM.ti
+<
+
+Execute the ":UpdateRemotePlugins" and restart Neovim.
+
+						*navim-macos-install-macvim*
+Install MacVim
+
+>
+	brew install macvim --with-luajit --override-system-vim
+<
+
+Make alias
+
+>
+	alias vi="mvim -v"
+	alias vim="mvim -v"
+	alias vimdiff="mvim -d -v"
+<
+
+						*navim-macos-install-global*
+Install GLOBAL
+
+>
+	brew install global
+<
+
+						*navim-macos-quick-compile-ycm*
+Quick Compile YouCompleteMe
+
+>
+	cd ~/.config/nvim/bundle/YouCompleteMe
+	./install.sh --clang-completer --omnisharp-completer
+<
+
+Check for "~/.config/nvim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so"
+and "~/.config/nvim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so", done
+
+						*navim-macos-full-compile-ycm*
+Full Compile YouCompleteMe
+
+Try this if quick compile does not work
+
+>
+	cd ~/.config/nvim/bundle/
+	git clone https://github.com/Valloric/YouCompleteMe
+	cd YouCompleteMe/
+	git submodule update --init --recursive
+<
+
+Download clang from "http://llvm.org/releases/download.html" to "~/local/src/"
+and compile ycm_support_libs
+
+>
+	mkdir -p ~/local/src/
+	cd ~/local/src/
+	tar xf clang+llvm-3.6.0-x86_64-apple-darwin.tar.xz
+	mkdir -p ~/local/src/ycm_build/
+	cd ~/local/src/ycm_build/
+	cmake -G "Unix Makefiles" \
+	    -DPATH_TO_LLVM_ROOT=~/local/src/clang+llvm-3.6.0-x86_64-apple-darwin \
+	    . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+	make ycm_support_libs
+<
+
+Check for "~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so"
+and "~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so", done
+
+						*navim-macos-project-config*
+Project Configuration
+
+Download "https://raw.githubusercontent.com/Valloric/ycmd/master/cpp/ycm/.ycm_extra_conf.py"
+to your project directory
+
+
+==============================================================================
+PLUGINS						*navim-plugins*
+
+denite.nvim			https://github.com/Shougo/denite.nvim
+unite.vim			https://github.com/Shougo/unite.vim
+lightline.vim			https://github.com/itchyny/lightline.vim
+lightline-buffer		https://github.com/taohex/lightline-buffer
+deoplete			https://github.com/Shougo/deoplete.nvim
+vimfiler.vim			https://github.com/Shougo/vimfiler.vim
+unimpaired			https://github.com/tpope/vim-unimpaired
+editorconfig			https://github.com/editorconfig/editorconfig-vim
+...
+
+
+==============================================================================
+FONTS						*navim-fonts*
+
+If 'g:navim_settings.powerline_fonts' or 'g:navim_settings.nerd_fonts' is 1,
+you need to configure your terminal font from one of the following repos:
+
+taohex's font			https://github.com/taohex/font
+ryanoasis's font		https://github.com/ryanoasis/nerd-fonts
+
+
+==============================================================================
+TAGS						*navim-tags*
+
+"~/.config/nvim/tags/*.tags" will be auto added.
+
+Build from LLVM ("http://releases.llvm.org/download.html")
+
+>
+	tar xf libcxx.src.tar.xz
+	cp -R libcxx/include ~/.config/nvim/tags/libcxx
+	ctags -f libcxx.tags -R --c++-kinds=+p --fields=+iaS --extra=+q \
+	    --language-force=C++ --sort=foldcase -I _NOEXCEPT libcxx
+<
+
+Build from GCC ("https://gcc.gnu.org/mirrors.html")
+
+>
+	cp -R gcc/libstdc++-v3/include ~/.config/nvim/tags/libstdcpp
+	find libstdcpp -type f -print0 | xargs -0 sed -i '' \
+	    's/namespace std _GLIBCXX_VISIBILITY(default)/namespace std/g'
+	ctags -f libstdcpp.tags -R --c++-kinds=+p --fields=+iaS --extra=+q \
+	    --language-force=C++ --sort=foldcase -I _GLIBCXX_NOEXCEPT libstdcpp
+<
+
+Build from system or Modified Headers ("http://www.vim.org/scripts/script.php?script_id=2358")
+
+>
+	cp -R /usr/include/c++/$GCC_VERSION ~/.config/nvim/tags/old_libstdcpp
+	# it is not necessary to rename headers without an extension
+	# replace the "namespace std _GLIBCXX_VISIBILITY(default)"
+	# with "namespace std"
+	find old_libstdcpp -type f -print0 | xargs -0 sed -i '' \
+	    's/namespace std _GLIBCXX_VISIBILITY(default)/namespace std/g'
+	ctags -f old_libstdcpp.tags -R --c++-kinds=+p --fields=+iaS \
+	    --extra=+q --language-force=C++ --sort=foldcase \
+	    -I _GLIBCXX_NOEXCEPT old_libstdcpp
+<
+
+
+==============================================================================
+CODING STYLE					*navim-coding-style*
+
+EditorConfig is supported.
+Create an `.editorconfig` in any parent directory for consistent coding styles.
+Reference "http://editorconfig.org/".
+
+
+==============================================================================
+FAQ						*navim-faq*
+
+
+==============================================================================
+COMPATIBILITY					*navim-compatibility*
+
+macOS: Neovim or MacVim 8.
+linux: Neovim or Vim 8.
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:
+

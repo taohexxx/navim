@@ -1,0 +1,11 @@
+*~
+.cache/
+.DS_Store
+bundle/
+!bundle/repos/github.com/Shougo/dein.vim
+private_bundle/
+!private_bundle/c/
+private_layers/
+tags/
+tags
+
