@@ -304,7 +304,7 @@
   let &tabstop = g:navim_settings.default_indent
   " number of spaces per tab in insert mode
   let &softtabstop = g:navim_settings.default_indent
-  set expandtab  " use spaces instead of tabs
+  "set expandtab  " use spaces instead of tabs
   set smarttab  " use shiftwidth to enter tabs
   set autoindent  " automatically indent to match adjacent lines
   " the amount of indent for a continuation line for vim script
