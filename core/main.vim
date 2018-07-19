@@ -160,9 +160,7 @@
             \ 'YouCompleteMe' . g:navim_path_separator .
             \ 'third_party' . g:navim_path_separator . 'ycmd'
         if filereadable(expand(s:ycmd_path . g:navim_path_separator .
-            \ 'ycm_core.so')) &&
-            \ filereadable(expand(s:ycmd_path . g:navim_path_separator .
-            \ 'ycm_client_support.so'))
+            \ 'ycm_core.so'))
           let g:navim_settings.completion_plugin = 'ycm'
         endif
       elseif has('lua')

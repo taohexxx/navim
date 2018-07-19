@@ -76,7 +76,7 @@ Key                      | Value                                               |
 `explorer_plugin`        | `'nerdtree'`, `'vimfiler'`                          |
 `statusline_plugin`      | `'airline'`, `'lightline'`                          |
 `completion_autoselect`  | `1`, `0`                                            | if equals `1`, auto select the best plugin (recommended)
-`completion_plugin`      | `'deoplete'`, `'neocomplete'`, `'neocomplcache'`    | only set this when `completion_autoselect` is `0`
+`completion_plugin`      | `'deoplete'`, `'neocomplete'`, `'ycm'`, `'neocomplcache'` | only set this when `completion_autoselect` is `0`
 `syntaxcheck_autoselect` | `1`, `0`                                            | if equals `1`, auto select the best plugin (recommended)
 `syntaxcheck_plugin`     | `'ale'`, `'syntastic'`                              | only set this when `syntaxcheck_autoselect` is `0`
 `colorscheme`            | `'solarized'`, `'molokai'`, `'jellybeans'`          | use other colorschemes in `additional_plugins` or `layers` is supported
@@ -140,37 +140,81 @@ brew install global
 
 #### Quick Compile YouCompleteMe
 
+##### Compile ycm_core
+
 ```sh
-cd ~/.config/nvim/bundle/YouCompleteMe
-./install.sh --clang-completer --omnisharp-completer
+cd ~/.config/nvim/bundle/repos/github.com/Valloric/YouCompleteMe/
+./install.sh --all
+# or
+# ./install.sh --clang-completer --go-completer --js-completer
 ```
 
-Check for `~/.config/nvim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so` and `~/.config/nvim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so`, done
+Check for `~/.config/nvim/bundle/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/libclang.dylib` and `~/.config/nvim/bundle/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/ycm_core.so`, done
+
+##### TypeScript Support
+
+```sh
+yarn global add typescript
+```
 
 #### Full Compile YouCompleteMe
 
 Try this if quick compile does not work
 
+##### Clone
+
 ```sh
-cd ~/.config/nvim/bundle/
+mkdir -p ~/.config/nvim/bundle/repos/github.com/Valloric/
+cd ~/.config/nvim/bundle/repos/github.com/Valloric/
 git clone https://github.com/Valloric/YouCompleteMe
 cd YouCompleteMe/
 git submodule update --init --recursive
 ```
 
-Download clang from <http://llvm.org/releases/download.html> to `~/local/src/` and compile ycm_support_libs
+##### Compile ycm_core
+
+Download clang from <http://llvm.org/releases/download.html> to `~/local/src/` and compile ycm_core
 
 ```sh
 mkdir -p ~/local/src/
 cd ~/local/src/
-tar xf clang+llvm-3.6.0-x86_64-apple-darwin.tar.xz
+tar xf clang+llvm-6.0.0-x86_64-apple-darwin.tar.xz
 mkdir -p ~/local/src/ycm_build/
 cd ~/local/src/ycm_build/
-cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=~/local/src/clang+llvm-3.6.0-x86_64-apple-darwin . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-make ycm_support_libs
+cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=~/local/src/clang+llvm-6.0.0-x86_64-apple-darwin . ~/.config/nvim/bundle/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/cpp
+cmake --build . --target ycm_core --config Release
 ```
 
-Check for `~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so` and `~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so`, done
+Check for `~/.vim/bundle/YouCompleteMe/third_party/ycmd/libclang.dylib` and `~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so`, done
+
+##### Compile regex (Optional)
+
+```sh
+cmake -G "Unix Makefiles" . ~/.config/nvim/bundle/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/third_party/cregex
+cmake --build . --target _regex --config Release
+```
+
+Check for `~/.config/nvim/bundle/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/third_party/cregex/regex_3/_regex.so`, done
+
+##### Go Support
+
+```sh
+cd ~/.config/nvim/bundle/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/third_party/gocode
+go build
+```
+
+##### JavaScript Support
+
+```sh
+cd ~/.config/nvim/bundle/repos/github.com/Valloric/YouCompleteMe/third_party/ycmd/third_party/tern_runtime
+yarn install --production
+```
+
+##### TypeScript Support
+
+```sh
+yarn global add typescript
+```
 
 #### Project Configuration
 
