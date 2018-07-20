@@ -83,6 +83,8 @@ Key                      | Value                                               |
 `powerline_fonts`        | `1`, `0`                                            | requires [fonts](https://github.com/taohexxx/fonts)
 `nerd_fonts`             | `1`, `0`                                            | requires [fonts](https://github.com/taohexxx/fonts)
 
+Use `:echo g:navim_setting` in Neovim (or Vim) to check for runtime settings.
+
 ## Advanced Installation
 
 ### macOS

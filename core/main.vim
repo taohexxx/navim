@@ -498,9 +498,9 @@
         endfunction
 
         function! LightlineSyntaxcheck()
-          if g:navim_settings.syntaxcheck_plugin ==# 'ale'
+          if exists('*ALEGetStatusLine')
             return ALEGetStatusLine()
-          elseif g:navim_settings.syntaxcheck_plugin ==# 'syntastic'
+          elseif exists('*SyntasticStatuslineFlag')
             return SyntasticStatuslineFlag()
           endif
           return ''
