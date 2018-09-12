@@ -2,6 +2,7 @@
 
 "}}}
 
+call dein#add('taohexxx/a.vim')
 " run `:UpdateTypesFile` to highlight ctags symbols
 call dein#add('vim-scripts/TagHighlight')
 call dein#add('vim-scripts/gtags.vim')

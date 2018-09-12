@@ -2,7 +2,6 @@
 
 "}}}
 
-call dein#add('vim-scripts/a.vim', {'on_ft': ['c','cpp','cc']})
 call dein#add('vim-scripts/c.vim', {'on_ft': ['c','cpp','cc']})
 call dein#add('vim-scripts/echofunc.vim', {'on_ft': ['c','cpp','cc']})
 call dein#add('vim-scripts/google.vim', {'on_ft': ['c','cpp','cc']})
