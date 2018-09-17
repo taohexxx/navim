@@ -253,7 +253,11 @@
   "set mouse&
   set mouse=a  " enable mouse
   if !g:navim_platform_neovim
-    set ttymouse=xterm2
+    if has("mouse_sgr")
+      set ttymouse=sgr
+    else
+      set ttymouse=xterm2
+    endif
   endif
   set mousehide  " hide when characters are typed
   set history=1000  " number of command lines to remember
