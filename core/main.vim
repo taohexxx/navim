@@ -340,12 +340,18 @@
   set incsearch  " incremental searching
   set ignorecase  " ignore case for searching
   set smartcase  " do case-sensitive if there's a capital letter
-  if executable('ack')
-    set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
+  " [Feature comparison of ack, ag, git-grep, GNU grep and ripgrep](https://beyondgrep.com/feature-comparison/)
+  if executable('rg')
+    " <https://github.com/BurntSushi/ripgrep>
+    set grepprg=rg\ --no-heading\ --column\ --smart-case\ --color=never\ --follow
     set grepformat=%f:%l:%c:%m
-  endif
-  if executable('ag')
+  elseif executable('ag')
+    " <https://geoff.greer.fm/ag/>
     set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+    set grepformat=%f:%l:%c:%m
+  elseif executable('ack')
+    " <https://beyondgrep.com>
+    set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
     set grepformat=%f:%l:%c:%m
   endif
 
