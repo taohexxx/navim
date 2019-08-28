@@ -17,33 +17,33 @@ call dein#add('vim-scripts/EasyGrep', {'on_cmd': 'GrepOptions'}) "{{{
   let g:EasyGrepAllOptionsInExplorer = 1
   let g:EasyGrepCommand = 1
 "}}}
-call dein#add('ctrlpvim/ctrlp.vim', {'depends': 'tacahiroy/ctrlp-funky', 'on_cmd': 'CtrlP'}) "{{{
-  let g:ctrlp_clear_cache_on_exit = 1
-  let g:ctrlp_max_height = 40
-  let g:ctrlp_show_hidden = 0
-  let g:ctrlp_follow_symlinks = 1
-  let g:ctrlp_max_files = 20000
-  let g:ctrlp_cache_dir = NavimGetCacheDir('ctrlp')
-  let g:ctrlp_reuse_window = 'startify'
-  let g:ctrlp_extensions = ['funky']
-  let g:ctrlp_custom_ignore = {
-      \ 'dir': '\v[\/]\.(git|hg|svn|idea)$',
-      \ 'file': '\v\.DS_Store$'
-      \ }
-
-  if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  endif
-
-  nmap \ [ctrlp]
-  nnoremap [ctrlp] <Nop>
-
-  nnoremap [ctrlp]t :CtrlPBufTag<CR>
-  nnoremap [ctrlp]T :CtrlPTag<CR>
-  nnoremap [ctrlp]l :CtrlPLine<CR>
-  nnoremap [ctrlp]o :CtrlPFunky<CR>
-  nnoremap [ctrlp]b :CtrlPBuffer<CR>
-"}}}
+"call dein#add('ctrlpvim/ctrlp.vim', {'depends': 'tacahiroy/ctrlp-funky', 'on_cmd': 'CtrlP'}) "{{{
+"  let g:ctrlp_clear_cache_on_exit = 1
+"  let g:ctrlp_max_height = 40
+"  let g:ctrlp_show_hidden = 0
+"  let g:ctrlp_follow_symlinks = 1
+"  let g:ctrlp_max_files = 20000
+"  let g:ctrlp_cache_dir = NavimGetCacheDir('ctrlp')
+"  let g:ctrlp_reuse_window = 'startify'
+"  let g:ctrlp_extensions = ['funky']
+"  let g:ctrlp_custom_ignore = {
+"      \ 'dir': '\v[\/]\.(git|hg|svn|idea)$',
+"      \ 'file': '\v\.DS_Store$'
+"      \ }
+"
+"  if executable('ag')
+"    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"  endif
+"
+"  nmap \ [ctrlp]
+"  nnoremap [ctrlp] <Nop>
+"
+"  nnoremap [ctrlp]t :CtrlPBufTag<CR>
+"  nnoremap [ctrlp]T :CtrlPTag<CR>
+"  nnoremap [ctrlp]l :CtrlPLine<CR>
+"  nnoremap [ctrlp]o :CtrlPFunky<CR>
+"  nnoremap [ctrlp]b :CtrlPBuffer<CR>
+""}}}
 if g:navim_settings.explorer_plugin ==# 'nerdtree' "{{{
   "if g:navim_settings.encoding == 'utf-8' && has('multi_byte') && has('unix') && &encoding == 'utf-8' &&
   "    \ (empty(&termencoding) || &termencoding == 'utf-8') "{{{

@@ -139,7 +139,6 @@
   " disabled plugins
   if !exists('g:navim_settings.disabled_plugins')
     let g:navim_settings.disabled_plugins = []
-    call add(g:navim_settings.disabled_plugins, 'ctrlp.vim')
     call add(g:navim_settings.disabled_plugins, 'junkfile.vim')
     call add(g:navim_settings.disabled_plugins, 'unite-airline_themes')
     call add(g:navim_settings.disabled_plugins, 'unite-colorscheme')
