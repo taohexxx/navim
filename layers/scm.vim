@@ -14,8 +14,8 @@ endif "}}}
 call dein#add('tpope/vim-fugitive') "{{{
   autocmd BufReadPost fugitive://* set bufhidden=delete
 "}}}
-call dein#add('gregsexton/gitv', {'depends': 'tpope/vim-fugitive', 'on_cmd': 'Gitv'}) "{{{
-"}}}
+call dein#add('tpope/vim-rhubarb', {'depends': 'tpope/vim-fugitive'})
+call dein#add('gregsexton/gitv', {'depends': 'tpope/vim-fugitive', 'on_cmd': 'Gitv'})
 
 
 " vim: fdm=marker ts=2 sts=2 sw=2 fdl=0
