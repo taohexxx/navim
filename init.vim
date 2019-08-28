@@ -55,7 +55,7 @@
 
 " main {{{
 
-  if (v:version < 704)
+  if (v:version < 800)
     echoerr "navim requires Neovim (or Vim 8). INSTALL IT! You'll thank me later!"
     finish
   endif
