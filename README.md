@@ -73,7 +73,7 @@ Key                      | Value                                               |
 `additional_plugins`     | `'joshdick/onedark.vim'`, ...                       | github repo
 `encoding`               | `'utf-8'`, `'gbk'`, `'latin1'`, ...                 | files in `encoding/`
 `bin_dir`                | `'/usr/local/bin'`, ...                             | bin directory for cscope, ctags, gdb, ...
-`explorer_plugin`        | `'nerdtree'`, `'vimfiler'`                          |
+`explorer_plugin`        | `'defx'`, `'nerdtree'`                              |
 `statusline_plugin`      | `'airline'`, `'lightline'`                          |
 `completion_autoselect`  | `1`, `0`                                            | if equals `1`, auto select the best plugin (recommended)
 `completion_plugin`      | `'deoplete'`, `'neocomplete'`, `'ycm'`, `'neocomplcache'` | only set this when `completion_autoselect` is `0`

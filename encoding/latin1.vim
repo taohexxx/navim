@@ -124,6 +124,19 @@ let g:lightline.mode_map = {
     \ '?': ' ',
     \ }
 
+" defx
+if dein#is_sourced('defx.nvim') "{{{
+  call defx#custom#column('icon', {
+      \ 'directory_icon': '>',
+      \ 'opened_icon': 'v',
+      \ 'root_icon': ' ',
+      \ })
+  call defx#custom#column('mark', {
+      \ 'readonly_icon': 'RO',
+      \ 'selected_icon': '*',
+      \ })
+endif "}}}
+
 " nerdtree
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '>'

@@ -234,10 +234,10 @@
   call dein#begin(NavimGetDir('bundle'))
   call dein#add('Shougo/dein.vim')
 
-  if !g:navim_platform_neovim && g:navim_has_python3 "{{{
+  if !g:navim_platform_neovim && g:navim_has_python3
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
-  endif "}}}
+  endif
 
   call dein#local(NavimGetDir('private_bundle'))
 
