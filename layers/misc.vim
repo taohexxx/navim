@@ -74,6 +74,7 @@ elseif g:navim_settings.syntaxcheck_plugin ==# 'syntastic' "{{{
     " run `:SyntasticCheck` to check syntax
   "}}}
 endif "}}}
+call dein#add('mattn/webapi-vim', {'on_cmd': 'Gist'})
 call dein#add('mattn/gist-vim', {'depends': 'mattn/webapi-vim', 'on_cmd': 'Gist'}) "{{{
   let g:gist_post_private = 1
   let g:gist_show_privates = 1
