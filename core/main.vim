@@ -151,21 +151,19 @@
     if g:navim_settings.completion_autoselect != 0 "{{{
       if g:navim_platform_neovim && g:navim_has_python3
         let g:navim_settings.completion_plugin = 'deoplete'
-      elseif g:navim_has_python3 || g:navim_has_python2
-        let s:ycmd_path = NavimGetDir('bundle') . g:navim_path_separator .
-            \ 'repos' . g:navim_path_separator .
-            \ 'github.com' . g:navim_path_separator .
-            \ 'Valloric' . g:navim_path_separator .
-            \ 'YouCompleteMe' . g:navim_path_separator .
-            \ 'third_party' . g:navim_path_separator . 'ycmd'
-        if filereadable(expand(s:ycmd_path . g:navim_path_separator .
-            \ 'ycm_core.so'))
-          let g:navim_settings.completion_plugin = 'ycm'
-        endif
-      elseif has('lua')
-        let g:navim_settings.completion_plugin = 'neocomplete'
       else
-        let g:navim_settings.completion_plugin = 'neocomplcache'
+        let g:navim_settings.completion_plugin = 'coc'
+      "elseif g:navim_has_python3 || g:navim_has_python2
+      "  let s:ycmd_path = NavimGetDir('bundle') . g:navim_path_separator .
+      "      \ 'repos' . g:navim_path_separator .
+      "      \ 'github.com' . g:navim_path_separator .
+      "      \ 'Valloric' . g:navim_path_separator .
+      "      \ 'YouCompleteMe' . g:navim_path_separator .
+      "      \ 'third_party' . g:navim_path_separator . 'ycmd'
+      "  if filereadable(expand(s:ycmd_path . g:navim_path_separator .
+      "      \ 'ycm_core.so'))
+      "    let g:navim_settings.completion_plugin = 'ycm'
+      "  endif
       endif
     endif "}}}
 
@@ -486,7 +484,7 @@
     elseif g:navim_settings.statusline_plugin ==# 'lightline' "{{{
       "call dein#add('zefei/vim-wintabs')
       "call dein#add('bling/vim-bufferline') "{{{
-      "  function! LightLineBufferline()
+      "  function! LightlineBufferline()
       "    "if !empty(glob("lightline.vim"))
       "    if exists('*bufferline#refresh_status')
       "      call bufferline#refresh_status()
@@ -580,6 +578,10 @@
               \ &ft ==# 'vimfiler' ? 'VimFiler' :
               \ &ft ==# 'vimshell' ? 'VimShell' :
               \ winwidth(0) > 60 ? lightline#mode() : ''
+        endfunction
+
+        function! CocCurrentFunction()
+          return get(b:, 'coc_current_function', '')
         endfunction
 
         function! CtrlPMark()

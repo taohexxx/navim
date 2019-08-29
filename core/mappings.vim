@@ -37,8 +37,14 @@
     else
       augroup auto_highlight
         autocmd!
-        " 3match conflicts with airline
-        autocmd CursorHold * silent! execute printf('2match WarningMsg /\<%s\>/', expand('<cword>'))
+        if dein#is_sourced('coc.nvim')
+          " highlight link CocHighlightText CursorColumn by default
+          highlight link CocHighlightText WarningMsg
+          autocmd CursorHold * silent call CocActionAsync('highlight')
+        else
+          " 3match conflicts with airline
+          autocmd CursorHold * silent! execute printf('2match WarningMsg /\<%s\>/', expand('<cword>'))
+        endif
       augroup end
       setlocal updatetime=20
       "echo 'Highlight current word: on'
@@ -324,6 +330,41 @@
       nnoremap <silent> <M-S-b> :BuffergatorMruCycleNext<CR>
       nnoremap <silent> [b :BuffergatorMruCyclePrev<CR>
       nnoremap <silent> ]b :BuffergatorMruCycleNext<CR>
+
+    endif "}}}
+
+  "}}}
+
+  " clang {{{
+
+    if dein#is_sourced('coc.nvim') " {{{
+
+      let g:lmap.c = { 'name' : '+clang' }
+
+      " gotos
+      nmap <silent> <Leader>cd <Plug>(coc-definition)
+      nmap <silent> <Leader>cy <Plug>(coc-type-definition)
+      nmap <silent> <Leader>ci <Plug>(coc-implementation)
+      nmap <silent> <Leader>cr <Plug>(coc-references)
+
+      " rename current word
+      nmap <Leader>cn <Plug>(coc-rename)
+
+      " format selected region
+      xmap <Leader>cf <Plug>(coc-format-selected)
+      nmap <Leader>cf <Plug>(coc-format-selected)
+      nmap <silent> <Leader>cm <Plug>(coc-format)
+
+      " show documentation in preview window
+      nnoremap <silent> <SID>show-doc :call <SID>ShowDoc()<CR>
+      nmap <Leader>ch <SID>show-doc
+      function! <SID>ShowDoc()
+        if (index(['vim', 'help'], &filetype) >= 0)
+          execute 'h '.expand('<cword>')
+        else
+          call CocAction('doHover')
+        endif
+      endfunction
 
     endif "}}}
 

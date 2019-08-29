@@ -68,10 +68,6 @@ if g:navim_settings.explorer_plugin ==# 'nerdtree' "{{{
 "}}}
 elseif g:navim_settings.explorer_plugin ==# 'defx' "{{{
   call dein#add('Shougo/defx.nvim')
-  if !g:navim_platform_neovim && g:navim_has_python3
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
   call dein#add('kristijanhusak/defx-icons', {'depends': 'Shougo/defx.nvim'})
   call dein#add('kristijanhusak/defx-git', {'depends': 'Shougo/defx.nvim'})
   call defx#custom#column('filename', {

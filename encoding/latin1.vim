@@ -124,8 +124,17 @@ let g:lightline.mode_map = {
     \ '?': ' ',
     \ }
 
+" coc
+if dein#is_sourced('coc.nvim')
+  let g:lightline.active.left = [ [ 'mode', 'paste' ],
+      \ [ 'fugitive', 'filename' ],
+      \ [ 'cocstatus', 'coctag' ], ]
+  let g:lightline.component_function.cocstatus = 'coc#status'
+  let g:lightline.component_function.coctag = 'CocCurrentFunction'
+endif
+
 " defx
-if dein#is_sourced('defx.nvim') "{{{
+if dein#is_sourced('defx.nvim')
   call defx#custom#column('icon', {
       \ 'directory_icon': '>',
       \ 'opened_icon': 'v',
@@ -135,7 +144,7 @@ if dein#is_sourced('defx.nvim') "{{{
       \ 'readonly_icon': 'RO',
       \ 'selected_icon': '*',
       \ })
-endif "}}}
+endif
 
 " nerdtree
 let g:NERDTreeDirArrows = 1

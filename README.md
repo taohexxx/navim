@@ -76,7 +76,7 @@ Key                      | Value                                               |
 `explorer_plugin`        | `'defx'`, `'nerdtree'`                              |
 `statusline_plugin`      | `'airline'`, `'lightline'`                          |
 `completion_autoselect`  | `1`, `0`                                            | if equals `1`, auto select the best plugin (recommended)
-`completion_plugin`      | `'deoplete'`, `'neocomplete'`, `'ycm'`, `'neocomplcache'` | only set this when `completion_autoselect` is `0`
+`completion_plugin`      | `'deoplete'`, `'coc'`, `'ycm'`                      | only set this when `completion_autoselect` is `0`
 `syntaxcheck_autoselect` | `1`, `0`                                            | if equals `1`, auto select the best plugin (recommended)
 `syntaxcheck_plugin`     | `'ale'`, `'syntastic'`                              | only set this when `syntaxcheck_autoselect` is `0`
 `colorscheme`            | `'solarized'`, `'molokai'`, `'jellybeans'`          | use other colorschemes in `additional_plugins` or `layers` is supported
@@ -84,6 +84,8 @@ Key                      | Value                                               |
 `nerd_fonts`             | `1`, `0`                                            | requires [fonts](https://github.com/taohexxx/fonts)
 
 Use `:echo g:navim_setting` in Neovim (or Vim) to check for runtime settings.
+
+if `completion_plugin` is `'coc'`, you need to install coc extensions manually like this for the first time: `:CocInstall coc-snippets coc-highlight coc-lists`. [Using coc extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
 
 ## Advanced Installation
 
