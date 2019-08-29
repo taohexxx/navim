@@ -22,7 +22,9 @@
     "}}}
 
     " change grep "{{{
+      " [Feature comparison of ack, ag, git-grep, GNU grep and ripgrep](https://beyondgrep.com/feature-comparison/)
       if executable('rg')
+        " <https://github.com/BurntSushi/ripgrep>
         call denite#custom#var('grep', 'command', ['rg'])
         call denite#custom#var('grep', 'default_opts',
             \ ['-i', '--vimgrep', '--no-heading'])
@@ -39,6 +41,7 @@
         call denite#custom#var('grep', 'separator', ['--'])
         call denite#custom#var('grep', 'final_opts', [])
       elseif executable('ag')
+        " <https://geoff.greer.fm/ag/>
         call denite#custom#var('grep', 'command', ['ag'])
         call denite#custom#var('grep', 'default_opts',
             \ ['-i', '--vimgrep', '--hidden',
@@ -57,9 +60,10 @@
         call denite#custom#var('grep', 'separator', ['--'])
         call denite#custom#var('grep', 'final_opts', [])
       elseif executable('ack')
+        " <https://beyondgrep.com>
         call denite#custom#var('grep', 'command', ['ack'])
         call denite#custom#var('grep', 'default_opts',
-            \ ['-i', '-H', '--nopager', '--noheading',
+            \ ['-i', '--with-filename', '--nopager', '--noheading',
             \ '--nocolor', '--nogroup', '--column'])
         call denite#custom#var('grep', 'recursive_opts', [])
         call denite#custom#var('grep', 'pattern_opt', ['--match'])
