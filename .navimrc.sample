@@ -46,12 +46,15 @@ function! BeforeAll()
   "let g:navim_settings.cscopeprg = 'cscope'
 
   " plugins
-  let g:navim_settings.completion_autoselect = 1
-  let g:navim_settings.syntaxcheck_autoselect = 1
+  " if use coc, you need to run this manually for the first time
+  " :CocInstall coc-snippets coc-json coc-tsserver coc-html coc-css coc-java coc-r-lsp coc-yaml coc-python coc-highlight coc-lists coc-git coc-yank coc-svg coc-vimlsp coc-xml
+  " :CocList extensions
+  " :CocList snippets
+  "let g:navim_settings.completion_plugin = 'coc'
+  "let g:navim_settings.explorer_plugin = 'defx'
   let g:navim_settings.explorer_plugin = 'nerdtree'
-  "let g:navim_settings.explorer_plugin = 'vimfiler'
-  let g:navim_settings.statusline_plugin = 'airline'
   "let g:navim_settings.statusline_plugin = 'lightline'
+  let g:navim_settings.statusline_plugin = 'airline'
 
   " user interface
   "let g:navim_settings.colorscheme = 'solarized'
