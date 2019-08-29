@@ -74,20 +74,11 @@ elseif g:navim_settings.syntaxcheck_plugin ==# 'syntastic' "{{{
     " run `:SyntasticCheck` to check syntax
   "}}}
 endif "}}}
+call dein#add('Shougo/deol.nvim')
 call dein#add('mattn/webapi-vim', {'on_cmd': 'Gist'})
 call dein#add('mattn/gist-vim', {'depends': 'mattn/webapi-vim', 'on_cmd': 'Gist'}) "{{{
   let g:gist_post_private = 1
   let g:gist_show_privates = 1
-"}}}
-call dein#add('Shougo/vimshell.vim', {'on_cmd': ['VimShell','VimShellInteractive']}) "{{{
-  if g:navim_platform_macvim
-    let g:vimshell_editor_command = 'mvim'
-  else
-    let g:vimshell_editor_command = 'vim'
-  endif
-  let g:vimshell_right_prompt = 'getcwd()'
-  let g:vimshell_data_directory = NavimGetCacheDir('vimshell')
-  let g:vimshell_vimshrc_path = '~/.config/nvim/vimshrc'
 "}}}
 call dein#add('zhaocai/GoldenView.Vim', {'on_map': '<Plug>ToggleGoldenViewAutoResize'}) "{{{
   let g:goldenview__enable_default_mapping = 0
