@@ -1,13 +1,13 @@
 " functions {{{
 
-  function! <SID>EvalVimscript(begin, end) "{{{
+  function! <SID>EvalVimscript(begin, end)
     let lines = getline(a:begin, a:end)
     for line in lines
       execute line
     endfor
-  endfunction "}}}
+  endfunction
 
-  function! <SID>CloseWindowOrKillBuffer() "{{{
+  function! <SID>CloseWindowOrKillBuffer()
     " never bdelete a nerd tree
     if matchstr(expand("%"), 'NERD') ==# 'NERD'
       wincmd c
@@ -22,11 +22,11 @@
     else
       bdelete
     endif
-  endfunction "}}}
+  endfunction
 
   " highlight all instances of word under cursor, when idle.
   " useful when studying strange source code.
-  function! <SID>AutoHighlightToggle() "{{{
+  function! <SID>AutoHighlightToggle()
     let @/ = ''
     if exists('#auto_highlight')
       autocmd! auto_highlight
@@ -50,9 +50,9 @@
       "echo 'Highlight current word: on'
       return 1
     endif
-  endfunction "}}}
+  endfunction
 
-  function! <SID>ListToggle(bufname, pfx) "{{{
+  function! <SID>ListToggle(bufname, pfx)
     let buflist = GetBufferList()
     for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "' . a:bufname . '"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
       if bufwinnr(bufnum) != -1
@@ -70,10 +70,10 @@
     if winnr() != winnr
       wincmd p
     endif
-  endfunction "}}}
+  endfunction
 
   " toggle just text
-  function! <SID>JustTextToggle() "{{{
+  function! <SID>JustTextToggle()
     if !exists('b:just_text')
       let b:just_text = 0
     endif
@@ -99,7 +99,7 @@
       echo 'Just text: off'
       return 1
     endif
-  endfunction "}}}
+  endfunction
 
   " maximize or restore current window in split structure
   " <http://vim.wikia.com/wiki/Maximize_window_and_return_to_previous_split_structure>
@@ -125,7 +125,7 @@
     unmenu Foo
   endfunction
 
-  function! <SID>VisualSelection(direction) range "{{{
+  function! <SID>VisualSelection(direction) range
     let l:saved_reg = @"
     execute "normal! vgvy"
 
@@ -146,16 +146,16 @@
 
     let @/ = l:pattern
     let @" = l:saved_reg
-  endfunction "}}}
+  endfunction
 
-  function! <SID>GetVisualSelection() "{{{
+  function! <SID>GetVisualSelection()
     let [s:lnum1, s:col1] = getpos("'<")[1:2]
     let [s:lnum2, s:col2] = getpos("'>")[1:2]
     let s:lines = getline(s:lnum1, s:lnum2)
     let s:lines[-1] = s:lines[-1][: s:col2 - (&selection == 'inclusive' ? 1 : 2)]
     let s:lines[0] = s:lines[0][s:col1 - 1:]
     return join(s:lines, ' ')
-  endfunction "}}}
+  endfunction
 
 "}}}
 
@@ -266,19 +266,8 @@
     nnoremap <SID>gdb :ConqueGdbVSplit<CR>
     nmap <Leader>ag <SID>gdb
 
-    let g:lmap.a.s = { 'name' : '+shell' }
-
-    " vimshell
-    nnoremap <SID>vimshell :VimShell -split<CR>
-    nmap <Leader>asv <SID>vimshell
-    nnoremap <SID>vimshell-node :VimShellInteractive node<CR>
-    nmap <Leader>asn <SID>vimshell-node
-    nnoremap <SID>vimshell-lua :VimShellInteractive lua<CR>
-    nmap <Leader>asl <SID>vimshell-lua
-    nnoremap <SID>vimshell-irb :VimShellInteractive irb<CR>
-    nmap <Leader>asi <SID>vimshell-irb
-    nnoremap <SID>vimshell-asp :VimShellInteractive python<CR>
-    nmap <Leader>asp <SID>vimshell-asp
+    nnoremap <SID>deol :Deol -split=horizontal<CR>
+    nmap <Leader>as <SID>deol
 
   "}}}
 
@@ -321,7 +310,7 @@
     nmap <silent> <SID>buffer-kill-alt <Plug>BufKillAlt
     nmap <Leader>bka <SID>buffer-kill-alt
 
-    if dein#is_sourced('vim-buffergator') " {{{
+    if dein#is_sourced('vim-buffergator')
 
       " buffergator
       nnoremap <silent> <SID>buffer-preview :BuffergatorOpen<CR>
@@ -331,13 +320,13 @@
       nnoremap <silent> [b :BuffergatorMruCyclePrev<CR>
       nnoremap <silent> ]b :BuffergatorMruCycleNext<CR>
 
-    endif "}}}
+    endif
 
   "}}}
 
   " clang {{{
 
-    if dein#is_sourced('coc.nvim') " {{{
+    if dein#is_sourced('coc.nvim')
 
       let g:lmap.c = { 'name' : '+clang' }
 
@@ -366,7 +355,7 @@
         endif
       endfunction
 
-    endif "}}}
+    endif
 
   "}}}
 
@@ -426,26 +415,24 @@
       endif
     endif
 
-    if dein#is_sourced('nerdtree') "{{{
+    if dein#is_sourced('nerdtree')
       nnoremap <silent> <SID>nerdtree-toggle :NERDTreeToggle<CR>
       nmap <Leader>ft <SID>nerdtree-toggle
       nnoremap <silent> <SID>nerdtree-find :NERDTreeFind<CR>
       nmap <Leader>fT <SID>nerdtree-find
-    "}}}
-    elseif dein#is_sourced('defx.nvim') "{{{
+    elseif dein#is_sourced('defx.nvim')
       nnoremap <silent> <SID>defx-toggle :Defx -split=vertical -toggle -winwidth=40 -direction=botright<CR>
       nmap <Leader>ft <SID>defx-toggle
       nnoremap <silent> <SID>defx-find :Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=40 -direction=botright<CR>
       nmap <Leader>fT <SID>defx-find
-    "}}}
-    elseif dein#is_sourced('vimfiler.vim') "{{{
+    elseif dein#is_sourced('vimfiler.vim')
       nnoremap <silent> <SID>vimfiler-toggle :VimFilerExplorer -toggle -winwidth=40 -direction=botright<CR>
       nmap <Leader>ft <SID>vimfiler-toggle
       nnoremap <silent> <SID>vimfiler-find :VimFilerExplorer -find -winwidth=40 -direction=botright<CR>
       nmap <Leader>fT <SID>vimfiler-find
       "nnoremap <silent> <Leader>n :VimFiler -toggle -split -buffer-name=explorer -winwidth=40 -no-quit -direction=botright<CR>
       "nnoremap <silent> <Leader>nf :VimFiler -find -toggle -split -buffer-name=explorer -winwidth=40 -no-quit -direction=botright<CR>
-    endif "}}}
+    endif
 
     let g:lmap.f.v = { 'name' : '+vim' }
 
@@ -692,7 +679,7 @@
       nmap <Leader>jo <SID>unite-outline
     endif
 
-    if dein#is_sourced('unite-gtags') "{{{
+    if dein#is_sourced('unite-gtags')
 
       " lists the references or definitions of a word
       " `global --from-here=<location of cursor> -qe <word on cursor>`
@@ -730,7 +717,7 @@
       vnoremap <silent> <SID>unite-gtags-ref <ESC>:execute 'Unite gtags/ref:'.<SID>GetVisualSelection()<CR>
       vmap <Leader>jr <SID>unite-gtags-ref
 
-    endif "}}}
+    endif
 
     if dein#is_sourced('unite-airline_themes') && dein#is_sourced('vim-airline')
       nnoremap <silent> <SID>unite-airline-themes :<C-u>Unite -toggle -winheight=10 -auto-preview -buffer-name=airline_themes airline_themes<CR>
