@@ -157,29 +157,17 @@ g:navim_settings.statusline_plugin
 
 		Values: 'airline', 'lightline'
 
-						*g:navim_settings.completion_autoselect*
-g:navim_settings.completion_autoselect
-		If equals 1, auto select the best plugin (recommended).
-
-		Values: 1, 0
-
 						*g:navim_settings.completion_plugin*
 g:navim_settings.completion_plugin
-		Only set this when |g:navim_settings.completion_autoselect| is 0.
+		Completion plugin.
 
-		Values: 'deoplete', 'neocomplete', 'neocomplcache'
-
-						*g:navim_settings.syntaxcheck_autoselect*
-g:navim_settings.syntaxcheck_autoselect
-		If equals 1, auto select the best plugin (recommended).
-
-		Values: 1, 0
+		Values: '', 'deoplete', 'coc', 'ycm'
 
 						*g:navim_settings.syntaxcheck_plugin*
 g:navim_settings.syntaxcheck_plugin
-		Only set this when |g:navim_settings.syntaxcheck_autoselect| is 0.
+		Syntax check plugin.
 
-		Values: 'ale', 'syntastic'
+		Values: '', 'ale', 'syntastic'
 
 						*g:navim_settings.colorscheme*
 g:navim_settings.colorscheme

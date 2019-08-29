@@ -75,10 +75,8 @@ Key                      | Value                                               |
 `bin_dir`                | `'/usr/local/bin'`, ...                             | bin directory for cscope, ctags, gdb, ...
 `explorer_plugin`        | `'defx'`, `'nerdtree'`                              |
 `statusline_plugin`      | `'airline'`, `'lightline'`                          |
-`completion_autoselect`  | `1`, `0`                                            | if equals `1`, auto select the best plugin (recommended)
-`completion_plugin`      | `'deoplete'`, `'coc'`, `'ycm'`                      | only set this when `completion_autoselect` is `0`
-`syntaxcheck_autoselect` | `1`, `0`                                            | if equals `1`, auto select the best plugin (recommended)
-`syntaxcheck_plugin`     | `'ale'`, `'syntastic'`                              | only set this when `syntaxcheck_autoselect` is `0`
+`completion_plugin`      | `'deoplete'`, `'coc'`, `'ycm'`                      |
+`syntaxcheck_plugin`     | `'ale'`, `'syntastic'`                              |
 `colorscheme`            | `'solarized'`, `'molokai'`, `'jellybeans'`          | use other colorschemes in `additional_plugins` or `layers` is supported
 `powerline_fonts`        | `1`, `0`                                            | requires [fonts](https://github.com/taohexxx/fonts)
 `nerd_fonts`             | `1`, `0`                                            | requires [fonts](https://github.com/taohexxx/fonts)

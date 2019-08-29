@@ -78,13 +78,11 @@
   call s:InsertIfNotExists(g:navim_settings, 'cscopeprg', 'gtags-cscope')
 
   " plugins
-  call s:InsertIfNotExists(g:navim_settings, 'completion_autoselect', 1)
-  call s:InsertIfNotExists(g:navim_settings, 'syntaxcheck_autoselect', 1)
-  call s:InsertIfNotExists(g:navim_settings, 'completion_plugin', 'none')
-  call s:InsertIfNotExists(g:navim_settings, 'syntaxcheck_plugin', 'none')
+  call s:InsertIfNotExists(g:navim_settings, 'completion_plugin', '')
+  call s:InsertIfNotExists(g:navim_settings, 'syntaxcheck_plugin', '')
   call s:InsertIfNotExists(g:navim_settings, 'explorer_plugin', 'nerdtree')
   call s:InsertIfNotExists(g:navim_settings, 'statusline_plugin', 'airline')
-  call s:InsertIfNotExists(g:navim_settings, 'fonts_plugin', 'none')
+  call s:InsertIfNotExists(g:navim_settings, 'fonts_plugin', '')
 
   " user interface
   call s:InsertIfNotExists(g:navim_settings, 'colorscheme', 'jellybeans')
@@ -148,7 +146,7 @@
 
   " plugin auto select "{{{
 
-    if g:navim_settings.completion_autoselect != 0 "{{{
+    if empty(g:navim_settings.completion_plugin)
       if g:navim_platform_neovim && g:navim_has_python3
         let g:navim_settings.completion_plugin = 'deoplete'
       else
@@ -165,15 +163,11 @@
       "    let g:navim_settings.completion_plugin = 'ycm'
       "  endif
       endif
-    endif "}}}
+    endif
 
-    if g:navim_settings.syntaxcheck_autoselect != 0 "{{{
-      if g:navim_platform_neovim || (v:version >= 800)
-        let g:navim_settings.syntaxcheck_plugin = 'ale'
-      else
-        let g:navim_settings.syntaxcheck_plugin = 'syntastic'
-      endif
-    endif "}}}
+    if empty(g:navim_settings.syntaxcheck_plugin)
+      let g:navim_settings.syntaxcheck_plugin = 'ale'
+    endif
 
     if g:navim_settings.nerd_fonts != 0 &&
         \ g:navim_settings.encoding ==# 'utf-8' &&
@@ -442,12 +436,12 @@
 
 " layers configuration {{{
 
-  if count(g:navim_settings.layers, 'core') "{{{
+  if count(g:navim_settings.layers, 'core')
     call dein#add('taohexxx/vim-leader-guide')
-    if g:navim_settings.statusline_plugin ==# 'airline' "{{{
+    if g:navim_settings.statusline_plugin ==# 'airline'
       "if g:navim_settings.encoding ==# 'utf-8' &&
       "    \ has('multi_byte') && has('unix') && &encoding ==# 'utf-8' &&
-      "    \ (empty(&termencoding) || &termencoding ==# 'utf-8') "{{{
+      "    \ (empty(&termencoding) || &termencoding ==# 'utf-8')
         call dein#add('vim-airline/vim-airline') "{{{
           let g:airline_powerline_fonts = g:navim_settings.powerline_fonts
           let g:airline_section_b = ''
@@ -479,9 +473,8 @@
           endif
         "}}}
         call dein#add('vim-airline/vim-airline-themes')
-      "endif "}}}
-    "}}}
-    elseif g:navim_settings.statusline_plugin ==# 'lightline' "{{{
+      "endif
+    elseif g:navim_settings.statusline_plugin ==# 'lightline'
       "call dein#add('zefei/vim-wintabs')
       "call dein#add('bling/vim-bufferline') "{{{
       "  function! LightlineBufferline()
@@ -638,17 +631,13 @@
 
       "}}}
       call dein#add('taohexxx/lightline-buffer', {'depends': 'itchyny/lightline.vim'})
-      if g:navim_settings.colorscheme ==# 'solarized' "{{{
+      if g:navim_settings.colorscheme ==# 'solarized'
         call dein#add('taohexxx/lightline-solarized', {'depends': 'itchyny/lightline.vim'})
-      endif "}}}
-    endif "}}}
+      endif
+    endif
+    call dein#add('skywind3000/asyncrun.vim')
     call dein#add('tpope/vim-surround')
     call dein#add('tpope/vim-repeat')
-    if g:navim_platform_neovim || (v:version >= 800)
-      call dein#add('skywind3000/asyncrun.vim')
-    else
-      call dein#add('tpope/vim-dispatch')
-    endif
     call dein#add('tpope/vim-eunuch')
     call dein#add('tpope/vim-unimpaired') "{{{
       nmap <C-Up> [e
@@ -656,7 +645,7 @@
       vmap <C-Up> [egv
       vmap <C-Down> ]egv
     "}}}
-  endif "}}}
+  endif
 
   call s:SourceLayers(NavimGetDir('layers'))
   call s:SourceLayers(NavimGetDir('private_layers'))
@@ -666,20 +655,13 @@
 " color schemes {{{
 
   call dein#add('nanotech/jellybeans.vim')
-  if g:navim_settings.colorscheme ==# 'solarized' "{{{
+  if g:navim_settings.colorscheme ==# 'solarized'
     call dein#add('taohexxx/vim-colors-solarized')
     let g:solarized_termcolors = 256
     let g:solarized_termtrans = 1
   elseif g:navim_settings.colorscheme ==# 'molokai'
     call dein#add('justinmk/molokai')
-  endif "}}}
-  "call dein#add('chriskempson/vim-tomorrow-theme')
-  "call dein#add('chriskempson/base16-vim')
-  "call dein#add('w0ng/vim-hybrid')
-  "call dein#add('sjl/badwolf')
-  "call dein#add('zeis/vim-kolor') "{{{
-  "  let g:kolor_underlined=1
-  ""}}}
+  endif
 
 "}}}
 
