@@ -210,9 +210,6 @@
     if filereadable(expand(g:navim_settings.bin_dir . '/ctags'))
       let g:tagbar_ctags_bin = g:navim_settings.bin_dir . '/ctags'
     endif
-    if filereadable(expand(g:navim_settings.bin_dir . '/gdb'))
-      let g:ConqueGdb_GdbExe = g:navim_settings.bin_dir . '/gdb'
-    endif
   else
     " cscopeprg
     if g:navim_settings.cscopeprg ==# 'gtags-cscope'

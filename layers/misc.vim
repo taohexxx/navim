@@ -49,7 +49,6 @@ call dein#add('mhinz/vim-startify') "{{{
       \ ' <Space>tt   toggle tagbar',
       \ ' <Space>tl   toggle quickfix list',
       \ ' <Space>au   toggle undo tree',
-      \ ' <Space>ag   gdb',
       \ '',
       \ ]
   let g:startify_custom_footer = [
@@ -66,31 +65,19 @@ call dein#add('mhinz/vim-startify') "{{{
       \ 'dir',
       \ ]
 "}}}
-if g:navim_settings.syntaxcheck_plugin ==# 'ale' "{{{
+if g:navim_settings.syntaxcheck_plugin ==# 'ale'
   call dein#add('w0rp/ale')
-"}}}
-elseif g:navim_settings.syntaxcheck_plugin ==# 'syntastic' "{{{
+elseif g:navim_settings.syntaxcheck_plugin ==# 'syntastic'
   call dein#add('vim-syntastic/syntastic') "{{{
     " run `:SyntasticCheck` to check syntax
   "}}}
-endif "}}}
+endif
 call dein#add('Shougo/deol.nvim')
 call dein#add('mattn/webapi-vim', {'on_cmd': 'Gist'})
 call dein#add('mattn/gist-vim', {'depends': 'mattn/webapi-vim', 'on_cmd': 'Gist'}) "{{{
   let g:gist_post_private = 1
   let g:gist_show_privates = 1
 "}}}
-call dein#add('zhaocai/GoldenView.Vim', {'on_map': '<Plug>ToggleGoldenViewAutoResize'}) "{{{
-  let g:goldenview__enable_default_mapping = 0
-"}}}
-" do not use conque-shell together with conque-gdb
-"call dein#add('oplatek/Conque-Shell')
-call dein#add('vim-scripts/Conque-GDB', {'on_cmd': ['ConqueGdb','ConqueGdbTab',
-    \ 'ConqueGdbVSplit','ConqueGdbSplit','ConqueTerm','ConqueTermTab',
-    \ 'ConqueTermVSplit','ConqueTermSplit']}) "{{{
-  let g:ConqueGdb_Leader = '\'
-"}}}
-"call dein#add('edkolev/tmuxline.vim')
 
 
 " vim: fdm=marker ts=2 sts=2 sw=2 fdl=0
