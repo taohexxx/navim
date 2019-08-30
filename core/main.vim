@@ -75,6 +75,7 @@
   call s:InsertIfNotExists(g:navim_settings, 'encoding', 'utf-8')
   call s:InsertIfNotExists(g:navim_settings, 'default_indent', 2)
   call s:InsertIfNotExists(g:navim_settings, 'bin_dir', '')
+  call s:InsertIfNotExists(g:navim_settings, 'clang_dir', '/usr/local')
   call s:InsertIfNotExists(g:navim_settings, 'cscopeprg', 'gtags-cscope')
 
   " plugins

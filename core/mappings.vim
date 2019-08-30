@@ -786,11 +786,11 @@
     let g:lmap.w.r = { 'name' : '+resize' }
 
     " increase the window size by a factor
-    nnoremap <silent> <SID>increase-width :exe "vertical resize " . (winwidth(0) * 5/4)<CR>
+    nnoremap <silent> <SID>increase-width :exe 'vertical resize ' . (winwidth(0) * 5/4)<CR>
     nmap <Leader>wr= <SID>increase-width
 
     " decrease the window size by a factor
-    nnoremap <silent> <SID>decrease-width :exe "vertical resize " . (winwidth(0) * 3/4)<CR>
+    nnoremap <silent> <SID>decrease-width :exe 'vertical resize ' . (winwidth(0) * 3/4)<CR>
     nmap <Leader>wr- <SID>decrease-width
 
     nnoremap <SID>maximize-toggle :call <SID>MaximizeToggle()<CR>
@@ -830,6 +830,13 @@
     let g:lmap.x = { 'name' : '+text' }
 
     let g:lmap.x.l = { 'name' : '+lines' }
+
+    " <https://vi.stackexchange.com/questions/7149/mapping-a-command-in-visual-mode-results-in-error-e481-no-range-alllowed>
+    noremap <SID>clang-format :<C-u>exe 'py3f ' .
+        \ g:navim_settings.clang_dir . g:navim_path_separator .
+        \ 'share' . g:navim_path_separator . 'clang' .
+        \ g:navim_path_separator . 'clang-format.py'<CR>
+    map <Leader>xc <SID>clang-format
 
     nnoremap <SID>format-file :call <SID>Preserve("normal gg=G")<CR>
     nmap <Leader>xf <SID>format-file

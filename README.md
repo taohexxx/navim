@@ -73,6 +73,8 @@ Key                      | Value                                               |
 `additional_plugins`     | `'joshdick/onedark.vim'`, ...                       | github repo
 `encoding`               | `'utf-8'`, `'gbk'`, `'latin1'`, ...                 | files in `encoding/`
 `bin_dir`                | `'/usr/local/bin'`, ...                             | bin directory for cscope, ctags, gdb, ...
+`clang_dir`              | `'/usr/local'`, ...                                 | install directory for clang
+`cscopeprg`              | `'gtags-cscope'`, `'cscope'`, ...                   | cscope program
 `explorer_plugin`        | `'defx'`, `'nerdtree'`                              |
 `statusline_plugin`      | `'airline'`, `'lightline'`                          |
 `completion_plugin`      | `'deoplete'`, `'coc'`, `'ycm'`                      |

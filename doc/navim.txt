@@ -145,6 +145,18 @@ g:navim_settings.bin_dir
 
 		Example: '/usr/local/bin'
 
+						g:navim_settings.clang_dir
+g:navim_settings.clang_dir
+		Set install directory for clang.
+
+		Example: '/usr/local'
+
+						g:navim_settings.cscopeprg
+g:navim_settings.cscopeprg
+		Set cscope program.
+
+		Example: 'gtags-cscope'
+
 						*g:navim_settings.explorer_plugin*
 g:navim_settings.explorer_plugin
 		Explorer plugin.
