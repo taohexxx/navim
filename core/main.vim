@@ -8,23 +8,23 @@
 
 " functions {{{
 
-  function! NavimGetDir(suffix) "{{{
+  function! NavimGetDir(suffix)
     return resolve(expand(s:nvim_dir . g:navim_path_separator . a:suffix))
-  endfunction "}}}
+  endfunction
 
-  function! NavimGetCacheDir(suffix) "{{{
+  function! NavimGetCacheDir(suffix)
     return resolve(expand(s:cache_dir . g:navim_path_separator . a:suffix))
-  endfunction "}}}
+  endfunction
 
-  function! NavimOnDoneUpdate() "{{{
+  function! NavimOnDoneUpdate()
     if exists('g:navim_updated_rplugins')
       return
     endif
     call dein#remote_plugins()
     let g:navim_updated_rplugins = 1
-  endfunction "}}}
+  endfunction
 
-  function! NavimPreserve(command) "{{{
+  function! NavimPreserve(command)
     " preparation: save last search and cursor position
     let l:_s = @/
     let l:l = line(".")
@@ -34,38 +34,38 @@
     " clean up: restore previous search history, and cursor position
     let @/ = l:_s
     call cursor(l:l, l:c)
-  endfunction "}}}
+  endfunction
 
-  function! NavimStripTrailingWhitespace() "{{{
+  function! NavimStripTrailingWhitespace()
     call NavimPreserve("%s/\\s\\+$//e")
-  endfunction "}}}
+  endfunction
 
-  function! s:EnsureExists(path) "{{{
+  function! s:EnsureExists(path)
     if !isdirectory(expand(a:path))
       call mkdir(expand(a:path))
     endif
-  endfunction "}}}
+  endfunction
 
-  function! s:InsertIfNotExists(map, key, value) "{{{
+  function! s:InsertIfNotExists(map, key, value)
     if !has_key(a:map, a:key)
       let a:map[a:key] = a:value
     endif
-  endfunction "}}}
+  endfunction
 
-  function! s:SourceLayers(path) "{{{
+  function! s:SourceLayers(path)
     for f in split(glob(a:path . g:navim_path_separator . '*.nvim\|*.vim'), '\n')
       let l:layer_name = fnamemodify(f, ':t:r')
       if count(g:navim_settings.layers, l:layer_name)
         execute 'source ' . f
       endif
     endfor
-  endfunction "}}}
+  endfunction
 
-  function! s:AddTags(path) "{{{
+  function! s:AddTags(path)
     for f in split(glob(a:path . g:navim_path_separator . '*.tags'), '\n')
       execute 'set tags+=' . f
     endfor
-  endfunction "}}}
+  endfunction
 
 "}}}
 
@@ -172,9 +172,9 @@
     if g:navim_settings.nerd_fonts != 0 &&
         \ g:navim_settings.encoding ==# 'utf-8' &&
         \ has('multi_byte') && has('unix') && &encoding ==# 'utf-8' &&
-        \ (empty(&termencoding) || &termencoding ==# 'utf-8') "{{{
+        \ (empty(&termencoding) || &termencoding ==# 'utf-8')
         let g:navim_settings.fonts_plugin = 'vim-devicons'
-    endif "}}}
+    endif
 
   "}}}
 
