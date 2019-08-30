@@ -152,7 +152,7 @@
 
 "}}}
 
-if (g:navim_platform_neovim || (v:version >= 800)) && g:navim_has_python3
+if g:navim_has_python3
 
   call dein#add('Shougo/denite.nvim', {
       \ 'hook_post_source': function('s:OnDenitePostSource'),
