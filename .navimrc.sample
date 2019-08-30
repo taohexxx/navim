@@ -42,6 +42,7 @@ function! BeforeAll()
   "let g:navim_settings.encoding = 'latin1'
   let g:navim_settings.default_indent = 2
   "let g:navim_settings.bin_dir = '/usr/local/bin'
+  "let g:navim_settings.clang_dir = '/usr/local'
   let g:navim_settings.cscopeprg = 'gtags-cscope'
   "let g:navim_settings.cscopeprg = 'cscope'
 
