@@ -3,11 +3,11 @@
 "}}}
 
 if g:navim_settings.encoding ==# 'utf-8' && has('multi_byte') && has('unix') && &encoding ==# 'utf-8' &&
-    \ (empty(&termencoding) || &termencoding ==# 'utf-8') "{{{
+    \ (empty(&termencoding) || &termencoding ==# 'utf-8')
   call dein#add('mhinz/vim-signify') "{{{
     let g:signify_update_on_bufenter = 0
   "}}}
-endif "}}}
+endif
 "if executable('hg')
 "  call dein#add('bitbucket:ludovicchabant/vim-lawrencium')
 "endif

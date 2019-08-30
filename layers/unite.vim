@@ -1,6 +1,6 @@
 " functions {{{
 
-  function! s:OnDenitePostSource() abort "{{{
+  function! s:OnDenitePostSource() abort
 
     " change file_rec command.
     "call denite#custom#var('file_rec', 'command',
@@ -93,9 +93,9 @@
 
     " change sorters
     call denite#custom#source('file_rec', 'sorters', ['sorter_rank'])
-  endfunction "}}}
+  endfunction
 
-  function! s:OnUnitePostSource() abort "{{{
+  function! s:OnUnitePostSource() abort
 
     " change grep "{{{
       if executable('rg')
@@ -142,17 +142,17 @@
         \ })
         "\ 'direction': 'botright',
 
-  endfunction "}}}
+  endfunction
 
-  function! s:UniteSettings() "{{{
+  function! s:UniteSettings()
     nmap <buffer> Q <Plug>(unite_exit)
     nmap <buffer> <Esc> <Plug>(unite_exit)
     imap <buffer> <Esc> <Plug>(unite_exit)
-  endfunction "}}}
+  endfunction
 
 "}}}
 
-if (g:navim_platform_neovim || (v:version >= 800)) && g:navim_has_python3 "{{{
+if (g:navim_platform_neovim || (v:version >= 800)) && g:navim_has_python3
 
   call dein#add('Shougo/denite.nvim', {
       \ 'hook_post_source': function('s:OnDenitePostSource'),
@@ -160,7 +160,7 @@ if (g:navim_platform_neovim || (v:version >= 800)) && g:navim_has_python3 "{{{
     " need to execute the `:UpdateRemotePlugins` and restart for the first time
   "}}}
 
-endif "}}}
+endif
 
 "{{{
 
