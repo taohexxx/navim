@@ -39,6 +39,7 @@ Key Mapping                                                   | Description
 Basic installation is simple:
 
 ```sh
+pip3 install --upgrade pip neovim
 git clone --recursive https://github.com/taohexxx/navim ~/.config/nvim
 ```
 
