@@ -421,9 +421,9 @@
       nnoremap <silent> <SID>nerdtree-find :NERDTreeFind<CR>
       nmap <Leader>fT <SID>nerdtree-find
     elseif dein#is_sourced('defx.nvim')
-      nnoremap <silent> <SID>defx-toggle :Defx -split=vertical -toggle -winwidth=40 -direction=botright<CR>
+      nnoremap <silent> <SID>defx-toggle :Defx -show-ignored-files -split=vertical -toggle -winwidth=40 -direction=botright<CR>
       nmap <Leader>ft <SID>defx-toggle
-      nnoremap <silent> <SID>defx-find :Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=40 -direction=botright<CR>
+      nnoremap <silent> <SID>defx-find :Defx `expand('%:p:h')` -search=`expand('%:p')` -show-ignored-files -split=vertical -winwidth=40 -direction=botright<CR>
       nmap <Leader>fT <SID>defx-find
     elseif dein#is_sourced('vimfiler.vim')
       nnoremap <silent> <SID>vimfiler-toggle :VimFilerExplorer -toggle -winwidth=40 -direction=botright<CR>
