@@ -49,6 +49,7 @@ call dein#add('mhinz/vim-startify') "{{{
       \ ' <Space>tt   toggle tagbar',
       \ ' <Space>tl   toggle quickfix list',
       \ ' <Space>au   toggle undo tree',
+      \ ' <Space>ag   gdb',
       \ '',
       \ ]
   let g:startify_custom_footer = [
@@ -73,6 +74,7 @@ elseif g:navim_settings.syntaxcheck_plugin ==# 'syntastic'
   "}}}
 endif
 call dein#add('Shougo/deol.nvim')
+call dein#add('cpiger/NeoDebug')
 call dein#add('mattn/webapi-vim', {'on_cmd': 'Gist'})
 call dein#add('mattn/gist-vim', {'depends': 'mattn/webapi-vim', 'on_cmd': 'Gist'}) "{{{
   let g:gist_post_private = 1

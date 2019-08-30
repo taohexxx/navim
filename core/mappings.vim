@@ -263,6 +263,9 @@
     nnoremap <silent> <SID>undotree-toggle :UndotreeToggle<CR>
     nmap <Leader>au <SID>undotree-toggle
 
+    nnoremap <SID>gdb :NeoDebug<CR>
+    nmap <Leader>ag <SID>gdb
+
     nnoremap <SID>deol :Deol -split=horizontal<CR>
     nmap <Leader>as <SID>deol
 
