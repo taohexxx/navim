@@ -73,7 +73,7 @@ elseif g:navim_settings.syntaxcheck_plugin ==# 'syntastic'
     " run `:SyntasticCheck` to check syntax
   "}}}
 endif
-call dein#add('Shougo/deol.nvim')
+call dein#add('Shougo/deol.nvim', {'hook_done_update': function('NavimOnDoneUpdate')})
 call dein#add('cpiger/NeoDebug')
 call dein#add('mattn/webapi-vim', {'on_cmd': 'Gist'})
 call dein#add('mattn/gist-vim', {'depends': 'mattn/webapi-vim', 'on_cmd': 'Gist'}) "{{{

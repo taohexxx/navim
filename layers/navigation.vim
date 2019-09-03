@@ -66,9 +66,9 @@ if g:navim_settings.explorer_plugin ==# 'nerdtree'
   "}}}
   "endif
 elseif g:navim_settings.explorer_plugin ==# 'defx'
-  call dein#add('Shougo/defx.nvim')
-  call dein#add('kristijanhusak/defx-icons', {'depends': 'Shougo/defx.nvim'})
-  call dein#add('kristijanhusak/defx-git', {'depends': 'Shougo/defx.nvim'})
+  call dein#add('Shougo/defx.nvim', {'hook_done_update': function('NavimOnDoneUpdate')})
+  call dein#add('kristijanhusak/defx-icons', {'depends': 'Shougo/defx.nvim', 'hook_done_update': function('NavimOnDoneUpdate')})
+  call dein#add('kristijanhusak/defx-git', {'depends': 'Shougo/defx.nvim', 'hook_done_update': function('NavimOnDoneUpdate')})
   call defx#custom#column('filename', {
       \ 'min_width': 40,
       \ 'max_width': 40,
