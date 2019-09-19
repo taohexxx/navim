@@ -119,6 +119,28 @@
     endif
   endfunction
 
+  " ignore whitespace
+  " <https://vim.fandom.com/wiki/Ignore_white_space_in_vimdiff>
+  function! <SID>WhitespaceToggle()
+    if &diff
+      if &diffopt =~ 'iwhite'
+        tabdo windo set list
+        set diffopt-=iwhite
+      else
+        tabdo windo set nolist
+        set diffopt+=iwhite
+      endif
+    else
+      if &diffopt =~ 'iwhite'
+        set list
+        set diffopt-=iwhite
+      else
+        set nolist
+        set diffopt+=iwhite
+      endif
+    endif
+  endfunction
+
   function! s:WriteCmdLine(str)
     execute "menu Foo.Bar :" . a:str
     emenu Foo.Bar
@@ -656,7 +678,7 @@
     nnoremap <silent> <SID>quickfix :call <SID>ListToggle("Quickfix List", 'c')<CR>
     nmap <Leader>tq <SID>quickfix
 
-    nnoremap <silent> <SID>whitespace :set list!<CR>
+    nnoremap <silent> <SID>whitespace :call <SID>WhitespaceToggle()<CR>
     nmap <Leader>tw <SID>whitespace
 
   "}}}
