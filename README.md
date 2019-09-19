@@ -86,8 +86,6 @@ Key                      | Value                                               |
 
 Use `:echo g:navim_setting` in Neovim (or Vim) to check for runtime settings.
 
-if `completion_plugin` is `'coc'`, you need to install coc extensions manually like this for the first time: `:CocInstall coc-snippets coc-highlight coc-lists`. [Using coc extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
-
 ## Advanced Installation
 
 ### macOS
@@ -143,7 +141,74 @@ alias vimdiff="mvim -d -v"
 brew install global
 ```
 
-#### Quick Compile YouCompleteMe
+#### Select Auto Completion
+
+Select auto completion plugins between [Deoplete](https://github.com/Shougo/deoplete.nvim), [Coc](https://github.com/neoclide/coc.nvim) and [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe).
+
+* [Deoplete](https://github.com/Shougo/deoplete.nvim): Zero configuration without [LSP](https://langserver.org/) support. If you don't write C++ or Java, use this.
+* [Coc](https://github.com/neoclide/coc.nvim): Simple initialization with [LSP](https://langserver.org/) support. If you write C++ or Java, use this.
+* [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe): Complicated initialization with [LSP](https://langserver.org/) support. Not recommanded.
+
+#### Auto Completion with [Deoplete](https://github.com/Shougo/deoplete.nvim)
+
+Add this line to `~/.navimrc`:
+
+```vim
+let g:navim_settings.completion_plugin = 'deoplete'
+```
+
+#### Auto Completion with [Coc](https://github.com/neoclide/coc.nvim)
+
+Add this line to `~/.navimrc`:
+
+```vim
+let g:navim_settings.completion_plugin = 'coc'
+```
+
+Install [Node.js](https://nodejs.org/en/download/).
+
+```sh
+brew install node
+```
+
+Write your `~/.config/nvim/coc-settings.json`. For example, using c++ with ccls:
+
+```json
+{
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "args": ["--log-file=/tmp/ccls.log"],
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": { "cache": { "directory": ".ccls-cache" } }
+    }
+  },
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.noselect": false,
+  "suggest.enablePreview": true,
+  "suggest.minTriggerInputLength": 2,
+  "suggest.acceptSuggestionOnCommitCharacter": true
+}
+```
+
+You need to install coc extensions manually like this for the first time: `:CocInstall coc-snippets coc-highlight coc-lists`.
+
+[Using coc extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions).
+
+#### Auto Completion with [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) (Quick Compile)
+
+Add this line to `~/.navimrc`:
+
+```vim
+let g:navim_settings.completion_plugin = 'ycm'
+```
 
 ##### Compile ycm_core
 
@@ -162,9 +227,15 @@ Check for `~/.config/nvim/bundle/repos/github.com/Valloric/YouCompleteMe/third_p
 yarn global add typescript
 ```
 
-#### Full Compile YouCompleteMe
+#### Auto Completion with [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) (Full Compile)
 
-Try this if quick compile does not work
+Try this if quick compile does not work.
+
+Add this line to `~/.navimrc`:
+
+```vim
+let g:navim_settings.completion_plugin = 'ycm'
+```
 
 ##### Clone
 
@@ -239,8 +310,9 @@ run `nvim.exe` before run `nvim-qt.exe`
 *	[unite.vim](https://github.com/Shougo/unite.vim)
 *	[lightline.vim](https://github.com/itchyny/lightline.vim)
 *	[lightline-buffer](https://github.com/taohexxx/lightline-buffer)
+*	[Coc](https://github.com/neoclide/coc.nvim)
 *	[deoplete](https://github.com/Shougo/deoplete.nvim)
-*	[vimfiler.vim](https://github.com/Shougo/vimfiler.vim)
+*	[Defx](https://github.com/Shougo/defx.nvim)
 *	[unimpaired](https://github.com/tpope/vim-unimpaired)
 *	[editorconfig](https://github.com/editorconfig/editorconfig-vim)
 *	...

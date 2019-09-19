@@ -5,7 +5,25 @@
 call dein#add('honza/vim-snippets')
 
 if g:navim_settings.completion_plugin ==# 'coc'
-  call dein#add('neoclide/coc.nvim', {'rev': 'release'}) "{{{
+  "call dein#add('neoclide/coc.nvim', {'merged': 0, 'build': 'yarn install --frozen-lockfile'}) "{{{
+  "  call dein#add('neoclide/coc-snippets', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-json', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-tsserver', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-html', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-css', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-java', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-r-lsp', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-yaml', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-python', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-highlight', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-lists', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-git', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('neoclide/coc-yank', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('iamcco/coc-svg', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('iamcco/coc-vimlsp', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  "  call dein#add('fannheyward/coc-xml', {'depends': 'neoclide/coc.nvim', 'merged': 0, 'build': 'yarn install --frozen-lockfile'})
+  ""}}}
+  call dein#add('neoclide/coc.nvim', {'merged': 0, 'rev': 'release'}) "{{{
     " manual run this for the first time
     " CocInstall coc-snippets coc-json coc-tsserver coc-html coc-css coc-java coc-r-lsp coc-yaml coc-python coc-highlight coc-lists coc-git coc-yank coc-svg coc-vimlsp coc-xml
     " CocList extensions
